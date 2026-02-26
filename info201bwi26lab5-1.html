@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gloria Gutierrez">
+
+<title>INFO201 B WI26 Lab 5 Activity</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="info201bwi26lab5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/popper.min.js"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="info201bwi26lab5_files/libs/quarto-html/anchor.min.js"></script>
+<link href="info201bwi26lab5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="info201bwi26lab5_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="info201bwi26lab5_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="info201bwi26lab5_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="info201bwi26lab5_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  <li><a href="#part-i-dishes-and-ingredients" id="toc-part-i-dishes-and-ingredients" class="nav-link" data-scroll-target="#part-i-dishes-and-ingredients">Part I: Dishes and Ingredients</a></li>
+  <li><a href="#part-ii-grocery-stores" id="toc-part-ii-grocery-stores" class="nav-link" data-scroll-target="#part-ii-grocery-stores">Part II: Grocery Stores</a></li>
+  <li><a href="#part-iii-merge" id="toc-part-iii-merge" class="nav-link" data-scroll-target="#part-iii-merge">Part III: Merge</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">INFO201 B WI26 Lab 5 Activity</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gloria Gutierrez </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>You want to throw a party and make wonderful food for your guests. But, there are too many dishes to consider. Can you use these datasets to guide you what to cook? This is what you want to achieve:</p>
+<ul>
+<li>You prefer to shop in a single store only, but if needed, you can go to two stores.</li>
+<li>If you go to two stores, you will make two shopping lists and buy the items from where it is cheaper (if available in both places).</li>
+<li>You want to make at least one starter, one main, and one dessert.</li>
+</ul>
+<p>Here are the data sets you have access to:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dishes_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Lab 5/dishes.csv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dishes_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ingredients_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Lab 5/ingredients.csv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ingredients_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="dishes" class="level4">
+<h4 class="anchored" data-anchor-id="dishes">Dishes</h4>
+<p>Dishes you are considering for the party.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Temperature</th>
+<th style="text-align: center;">Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tamarind chutney</td>
+<td style="text-align: left;">side</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: center;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mummy Ji’s chicken curry</td>
+<td style="text-align: left;">main</td>
+<td style="text-align: left;">hot</td>
+<td style="text-align: center;">****</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Basic ramen</td>
+<td style="text-align: left;">main</td>
+<td style="text-align: left;">hot</td>
+<td style="text-align: center;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vegetable maki</td>
+<td style="text-align: left;">starter</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: center;">****</td>
+</tr>
+</tbody>
+</table>
+<p><em>type is something like main, dessert or starter; temperature tells if it is a hot or cold dish.</em></p>
+<p>You also know what is available in the local grocery store, and in the Asian store that is further away:</p>
+</section>
+<section id="ingredients" class="level4">
+<h4 class="anchored" data-anchor-id="ingredients">Ingredients</h4>
+<p>Ingredient lists for various dishes</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">dish</th>
+<th style="text-align: left;">ingredient</th>
+<th style="text-align: right;">quantity</th>
+<th style="text-align: left;">unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Vegetable maki</td>
+<td style="text-align: left;">Nori roasted seaweed sheets</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">package</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vegetable maki</td>
+<td style="text-align: left;">Carrots</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chicken curry (Mummy Ji’s)</td>
+<td style="text-align: left;">chicken on the bone</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: left;">kg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chicken curry (Mummy Ji’s)</td>
+<td style="text-align: left;">vegetable oil</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">tablespoon</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="grocery-comparison" class="level4">
+<h4 class="anchored" data-anchor-id="grocery-comparison">Grocery Comparison</h4>
+<p><strong>Local groceries</strong> : items in your local grocery store</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">item</th>
+<th style="text-align: left;">quantity</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Potatoes</td>
+<td style="text-align: left;">lb</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carrots</td>
+<td style="text-align: left;">lb</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Seaweed sheets (Nori)</td>
+<td style="text-align: left;">pkg</td>
+<td style="text-align: right;">2.95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Asian groceries</strong> : items at the nearest Asian grocery store.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">item</th>
+<th style="text-align: left;">quantity</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Carrots</td>
+<td style="text-align: left;">lb</td>
+<td style="text-align: right;">1.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Roasted Nori Seaweed Sheets</td>
+<td style="text-align: left;">pkg</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soy sauce</td>
+<td style="text-align: left;">bottle</td>
+<td style="text-align: right;">5.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-i-dishes-and-ingredients" class="level1">
+<h1>Part I: Dishes and Ingredients</h1>
+<p>Answer the following questions as text, not as code.</p>
+<ol type="1">
+<li><p>You probably want to merge Dishes and Ingredients. How would you do this?</p>
+<p>I would probably merge the two datasets by the dish names.</p></li>
+</ol>
+<ol type="a">
+<li><p>What will be the merge key?</p>
+<p>The merge key I’d use is left_join function, since I can combine the dish names fully and show the different ingredients I’ll need for each dish by doing this.</p></li>
+<li><p>Do you see problems using the key you propose?</p>
+<p>Yes, not all columns would match, and therefore for columns that are present on one dataset would not show up, or the output would be invalid (N/A).</p></li>
+<li><p>What will you do with the lines that do not match: do you want to keep dishes with no ingredients? Ingredients of the dishes not listed in the Dishes table?</p>
+<p>I would probably still keep the dishes without the ingredients because when comparing one table to the other, you coukd probably be able to figure out or at least get an idea of what ingredients you might need with the name.</p></li>
+</ol>
+<hr>
+</section>
+<section id="part-ii-grocery-stores" class="level1">
+<h1>Part II: Grocery Stores</h1>
+<p>Answer the following questions as text, not as code.</p>
+<ol type="1">
+<li><p>Now you selected a small number of dishes you consider making. Which datasets do you have to combine in order to find the final price for your selected dishes?</p>
+<p>I would combine the Ingredients and one of the Groceries datasets. I’d probably combine it with the Asian groceries dataset.</p></li>
+<li><p>You want to combine Ingredients and Local groceries. How will you do this? Will you keep ingredients that are not present in local groceries? Will you keep the grocery items that are not present in your potential ingredient list?</p>
+<p>I would perform a merge. I’d probably do a left or right join and combine them by ingredients. I would probably keep all information present if I’m not able to get rid of it all together, since it would probably just show up as an N/A value.</p></li>
+<li><p>Now you combine Asian groceries to the previous data frame (combined ingredients and local groceries. Will you keep the ingredients not in the list? Will you keep grocery items not in the ingredient list?</p>
+<p>I probably would try and do another left or right join. Again, it depends on if I’m able to get rid of the N/A values or not. I probably would try and find a way to do so just to refine it, but I’m not too sure what function I’d need to accomplish that.</p></li>
+<li><p>What will you do with the items that are present in both grocery stores? Keep both? Keep on only one (but which one)? Something else?</p>
+<p>I would probably try and combine them together with the join_by function. I know that would probably give me repeated items. I’d probably keep everything in there, since I’d be a bit worried about me missing information. I’d rather have more information than I need rather than have missing information.</p></li>
+<li><p>Is it better to merge the local store data first, or the Asian store data first?</p>
+<p>For me, it would depend on which ingredients and store items match up most. If one dataset seems to have more items that much up with the ingredients I have, I would probably merge with that store’s data first.</p></li>
+</ol>
+<hr>
+</section>
+<section id="part-iii-merge" class="level1">
+<h1>Part III: Merge</h1>
+<p>Now load two datasets: <code>ingredients.csv</code> and <code>dishes.csv</code>, that are similar to the ones listed above.</p>
+<ol type="1">
+<li>Load both datasets and try to merge them. Do/do not keep the rows as you explain above in 1.1. Explain what happens and what kind of problems you run into.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load both data sets</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ingredients_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Lab 5/ingredients.csv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>dishes_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Lab 5/dishes.csv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Once you load the data sets above, perform a merge.</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>ingredients_and_dishes_df <span class="ot">&lt;-</span> ingredients_df <span class="sc">|&gt;</span> <span class="fu">cross_join</span>(dishes_df)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ingredients_and_dishes_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       dish                   ingredient quantity       unit
+1            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+2            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+3            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+4            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+5            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+6            Vegetable Maki  Nori roasted seaweed sheets     1.00    package
+7            Vegetable Maki                      Carrots     2.00           
+8            Vegetable Maki                      Carrots     2.00           
+9            Vegetable Maki                      Carrots     2.00           
+10           Vegetable Maki                      Carrots     2.00           
+11           Vegetable Maki                      Carrots     2.00           
+12           Vegetable Maki                      Carrots     2.00           
+13           Vegetable Maki                     Cucumber     1.00           
+14           Vegetable Maki                     Cucumber     1.00           
+15           Vegetable Maki                     Cucumber     1.00           
+16           Vegetable Maki                     Cucumber     1.00           
+17           Vegetable Maki                     Cucumber     1.00           
+18           Vegetable Maki                     Cucumber     1.00           
+19           Vegetable Maki                      Avocado     1.00           
+20           Vegetable Maki                      Avocado     1.00           
+21           Vegetable Maki                      Avocado     1.00           
+22           Vegetable Maki                      Avocado     1.00           
+23           Vegetable Maki                      Avocado     1.00           
+24           Vegetable Maki                      Avocado     1.00           
+25 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+26 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+27 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+28 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+29 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+30 Mummy Ji's Chicken Curry           Chiken on the bone     1.50         kg
+31 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+32 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+33 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+34 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+35 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+36 Mummy Ji's Chicken Curry                Vegetable oil     2.00 tablespoon
+37 Mummy Ji's Chicken Curry                        Lemon     0.50           
+38 Mummy Ji's Chicken Curry                        Lemon     0.50           
+39 Mummy Ji's Chicken Curry                        Lemon     0.50           
+40 Mummy Ji's Chicken Curry                        Lemon     0.50           
+41 Mummy Ji's Chicken Curry                        Lemon     0.50           
+42 Mummy Ji's Chicken Curry                        Lemon     0.50           
+43 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+44 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+45 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+46 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+47 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+48 Mummy Ji's Chicken Curry        Natural/plain yoghurt     2.00 tablespoon
+49     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+50     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+51     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+52     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+53     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+54     World's Best Lasagna        Sweet Italian sausage     1.00         lb
+55     World's Best Lasagna             Lean ground beef     0.75         lb
+56     World's Best Lasagna             Lean ground beef     0.75         lb
+57     World's Best Lasagna             Lean ground beef     0.75         lb
+58     World's Best Lasagna             Lean ground beef     0.75         lb
+59     World's Best Lasagna             Lean ground beef     0.75         lb
+60     World's Best Lasagna             Lean ground beef     0.75         lb
+61     World's Best Lasagna                Onion, minced     0.50        cup
+62     World's Best Lasagna                Onion, minced     0.50        cup
+63     World's Best Lasagna                Onion, minced     0.50        cup
+64     World's Best Lasagna                Onion, minced     0.50        cup
+65     World's Best Lasagna                Onion, minced     0.50        cup
+66     World's Best Lasagna                Onion, minced     0.50        cup
+67     World's Best Lasagna              Garlic, crushed     2.00     cloves
+68     World's Best Lasagna              Garlic, crushed     2.00     cloves
+69     World's Best Lasagna              Garlic, crushed     2.00     cloves
+70     World's Best Lasagna              Garlic, crushed     2.00     cloves
+71     World's Best Lasagna              Garlic, crushed     2.00     cloves
+72     World's Best Lasagna              Garlic, crushed     2.00     cloves
+73         Chicken Teriyaki               Cicken breasts     2.00           
+74         Chicken Teriyaki               Cicken breasts     2.00           
+75         Chicken Teriyaki               Cicken breasts     2.00           
+76         Chicken Teriyaki               Cicken breasts     2.00           
+77         Chicken Teriyaki               Cicken breasts     2.00           
+78         Chicken Teriyaki               Cicken breasts     2.00           
+79         Chicken Teriyaki Black pepper, freshly ground       NA           
+80         Chicken Teriyaki Black pepper, freshly ground       NA           
+81         Chicken Teriyaki Black pepper, freshly ground       NA           
+82         Chicken Teriyaki Black pepper, freshly ground       NA           
+83         Chicken Teriyaki Black pepper, freshly ground       NA           
+84         Chicken Teriyaki Black pepper, freshly ground       NA           
+85         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+86         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+87         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+88         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+89         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+90         Chicken Teriyaki                Vegetable oil     2.00   teaspoon
+91         Chicken Teriyaki                 Green onions     2.00           
+92         Chicken Teriyaki                 Green onions     2.00           
+93         Chicken Teriyaki                 Green onions     2.00           
+94         Chicken Teriyaki                 Green onions     2.00           
+95         Chicken Teriyaki                 Green onions     2.00           
+96         Chicken Teriyaki                 Green onions     2.00           
+                       name    type temperature rating
+1          Tamarind chutney    side        cold     **
+2  Mummy Ji's chicken curry    main         hot   ****
+3               Basic ramen    main         hot    ***
+4            Vegetable maki starter        cold   ****
+5      World's best lasagna    main         hot  *****
+6      Barbecued pork torta starter         hot  *****
+7          Tamarind chutney    side        cold     **
+8  Mummy Ji's chicken curry    main         hot   ****
+9               Basic ramen    main         hot    ***
+10           Vegetable maki starter        cold   ****
+11     World's best lasagna    main         hot  *****
+12     Barbecued pork torta starter         hot  *****
+13         Tamarind chutney    side        cold     **
+14 Mummy Ji's chicken curry    main         hot   ****
+15              Basic ramen    main         hot    ***
+16           Vegetable maki starter        cold   ****
+17     World's best lasagna    main         hot  *****
+18     Barbecued pork torta starter         hot  *****
+19         Tamarind chutney    side        cold     **
+20 Mummy Ji's chicken curry    main         hot   ****
+21              Basic ramen    main         hot    ***
+22           Vegetable maki starter        cold   ****
+23     World's best lasagna    main         hot  *****
+24     Barbecued pork torta starter         hot  *****
+25         Tamarind chutney    side        cold     **
+26 Mummy Ji's chicken curry    main         hot   ****
+27              Basic ramen    main         hot    ***
+28           Vegetable maki starter        cold   ****
+29     World's best lasagna    main         hot  *****
+30     Barbecued pork torta starter         hot  *****
+31         Tamarind chutney    side        cold     **
+32 Mummy Ji's chicken curry    main         hot   ****
+33              Basic ramen    main         hot    ***
+34           Vegetable maki starter        cold   ****
+35     World's best lasagna    main         hot  *****
+36     Barbecued pork torta starter         hot  *****
+37         Tamarind chutney    side        cold     **
+38 Mummy Ji's chicken curry    main         hot   ****
+39              Basic ramen    main         hot    ***
+40           Vegetable maki starter        cold   ****
+41     World's best lasagna    main         hot  *****
+42     Barbecued pork torta starter         hot  *****
+43         Tamarind chutney    side        cold     **
+44 Mummy Ji's chicken curry    main         hot   ****
+45              Basic ramen    main         hot    ***
+46           Vegetable maki starter        cold   ****
+47     World's best lasagna    main         hot  *****
+48     Barbecued pork torta starter         hot  *****
+49         Tamarind chutney    side        cold     **
+50 Mummy Ji's chicken curry    main         hot   ****
+51              Basic ramen    main         hot    ***
+52           Vegetable maki starter        cold   ****
+53     World's best lasagna    main         hot  *****
+54     Barbecued pork torta starter         hot  *****
+55         Tamarind chutney    side        cold     **
+56 Mummy Ji's chicken curry    main         hot   ****
+57              Basic ramen    main         hot    ***
+58           Vegetable maki starter        cold   ****
+59     World's best lasagna    main         hot  *****
+60     Barbecued pork torta starter         hot  *****
+61         Tamarind chutney    side        cold     **
+62 Mummy Ji's chicken curry    main         hot   ****
+63              Basic ramen    main         hot    ***
+64           Vegetable maki starter        cold   ****
+65     World's best lasagna    main         hot  *****
+66     Barbecued pork torta starter         hot  *****
+67         Tamarind chutney    side        cold     **
+68 Mummy Ji's chicken curry    main         hot   ****
+69              Basic ramen    main         hot    ***
+70           Vegetable maki starter        cold   ****
+71     World's best lasagna    main         hot  *****
+72     Barbecued pork torta starter         hot  *****
+73         Tamarind chutney    side        cold     **
+74 Mummy Ji's chicken curry    main         hot   ****
+75              Basic ramen    main         hot    ***
+76           Vegetable maki starter        cold   ****
+77     World's best lasagna    main         hot  *****
+78     Barbecued pork torta starter         hot  *****
+79         Tamarind chutney    side        cold     **
+80 Mummy Ji's chicken curry    main         hot   ****
+81              Basic ramen    main         hot    ***
+82           Vegetable maki starter        cold   ****
+83     World's best lasagna    main         hot  *****
+84     Barbecued pork torta starter         hot  *****
+85         Tamarind chutney    side        cold     **
+86 Mummy Ji's chicken curry    main         hot   ****
+87              Basic ramen    main         hot    ***
+88           Vegetable maki starter        cold   ****
+89     World's best lasagna    main         hot  *****
+90     Barbecued pork torta starter         hot  *****
+91         Tamarind chutney    side        cold     **
+92 Mummy Ji's chicken curry    main         hot   ****
+93              Basic ramen    main         hot    ***
+94           Vegetable maki starter        cold   ****
+95     World's best lasagna    main         hot  *****
+96     Barbecued pork torta starter         hot  *****</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>What do you think, would you be able to merge much much larger datasets of dishes and ingredients in a similar fashion? What kind of problems may arise there?</p>
+<p>I think you could. but you would come across the same problems of having the same information showing up more than once at a much larger scale which would be very frustrating and time consuming probably. There are probably ways to filter data and to decide which information to take out or leave in, however, it would probably take a while to filter through this data. I imagine this is why projects like these require groups/lots of teamwork.</p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
